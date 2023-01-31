@@ -7,12 +7,12 @@ The output of the module is a Numpy array comprising distances for each angle (r
 The distances are measured in mm and stored as integer. 
 
 Dependencies are:
-  module serial:  Provides a serial port for retrieving the data
-  module math
-  module numpy: The drivers is using numpy arrays extensively in order to provide good performance.
-  module time
-  module warnings
-  module threading: The scanning process runs in the background via a separate thread.
+  - module serial:  Provides a serial port for retrieving the data
+  - module math
+  - module numpy: The drivers is using numpy arrays extensively in order to provide good performance.
+  - module time
+  - module warnings
+  - module threading: The scanning process runs in the background via a separate thread.
   
 # Typical use:
 
@@ -21,35 +21,35 @@ Prerequiste: The lidar is connected a serial interface on your system and power 
 -----
 
 # 1) Import the module
-import ydlidar_x2
+- import ydlidar_x2
 
 # 2) Create a lid object, provide a serial port available on your system.
-port = '/dev/serial0'
-lid = ydlidar_x2.YDLidarX2(port)
+- port = '/dev/serial0'
+- lid = ydlidar_x2.YDLidarX2(port)
 
 # 3) Connect to the port and start scanning
-lid.connect()
-lid.start_scan()
+- lid.connect()
+- lid.start_scan()
 
 # 4) Retrieve data. 
 The scanning process takes approximately 0.3 secs. The duration depends on the chunk size (see table below).
 The property 'available' shows when new data has arrived.
 
-try:
-  while True:
-    if lid.available:
-      distances = lid.get_data()
-      # process the distances as needed by your application
-    time.sleep()
-except KeyboardInterrupt:
-  pass
+-   try:
+-    while True:
+-       if lid.available:
+-         distances = lid.get_data()
+-         # process the distances as needed by your application
+-       time.sleep()
+-   except KeyboardInterrupt:
+-     pass
   
 # 5) Shut down the lidar.
 When you are done, you should stop the scan and close the port.
 
-lid.stop_scan()
-lid.disconnect()
-print("Done")
+- lid.stop_scan()
+- lid.disconnect()
+- print("Done")
 
 -----
 
