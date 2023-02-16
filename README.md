@@ -2,8 +2,8 @@
 Python driver module for the YDLidar X2
 
 This is a Python module for the YDLidar X2. The module was developed on a Raspberry Pi. 
-However there are no specific Raspi dependencies.
-The output of the module is a Numpy array comprising distances for each angle (ranging from 0 to 359). 
+However, there are no specific Raspi dependencies.
+The output of the module is a Numpy array comprising distances for each angle, ranging from 0 to 359. 
 The distances are measured in mm and stored as integer. 
 
 Dependencies are:
