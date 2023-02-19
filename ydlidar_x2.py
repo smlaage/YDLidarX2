@@ -538,4 +538,3 @@ if __name__ == "__main__":
     GPIO.output(PIN_LIDAR_PWR, GPIO.LOW)
     print("LiDAR stoped")
     print("Done")
-
