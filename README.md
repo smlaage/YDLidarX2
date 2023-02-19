@@ -6,6 +6,11 @@ However, there are no specific Raspi dependencies.
 The output of the module is a Numpy array comprising distances for each angle, ranging from 0 to 359. 
 The distances are measured in mm and stored as integer. 
 
+For convenience, the module includes functions to plot data and sectors on a TKinter canvas. 
+There are also functions to plot distance measures as circles around the origin and individual
+vectors defined by distance and angle. The canvas must be provided by the caller. 
+For details on plotting, see the plot methodes below.
+
 Dependencies are:
   - module serial:  Provides a serial port for retrieving the data
   - module math
