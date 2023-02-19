@@ -13,10 +13,11 @@ Dependencies are:
   - module time
   - module warnings
   - module threading: The scanning process runs in the background via a separate thread.
+  - module tkinter: required by the built-in plot functions
   
 # Typical use:
 
-Prerequiste: The lidar is connected a serial interface on your system and power on.
+Prerequiste: The lidar is connected a serial interface on your system and powered on.
 
 -----
 
