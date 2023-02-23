@@ -1,0 +1,46 @@
+Brief documentation of the most import methods and properties:
+
+Object creation: lid = ydlidar_x2.YDLidarX2(<serial port>)
+
+Useful methods -----
+
+connect(): connects to the serial interface. The respective port must be provided a spart of the setup of the lidar object.
+
+disconnect(): disconnects the serial interface.
+
+start_scan(): initiates the scanning thread
+
+stop_scan(): stops the scanning thread
+
+get_data(): Returns an array of distance data (360 values, one for each degree). Resets availability flag
+
+get_sectors40(): Returns an array of minimum distances for sectors 0 ... 39. Resets availability flag. The sectors are defined by boundary angles: sectors[ 0] ->   0 -   8 degree,  sectors[ 1] ->   9 -  17 degree, sectors[ 2] ->  18 -  26 degree …
+
+get_sectors20(): Returns an array of minimum distances for sectors 0 ... 19. Resets availability flag.            The sectors are defined by boundary angles: sectors[ 0] ->   0 -  17 degree, sectors[ 1] ->  18 -  35 degree, sectors[ 2] ->  36 -  54 degree …
+
+plot_data(<canvas>): Plots the measured data on a canvas
+
+plot_sectors40(<canvas>): Plots 40 sectors on a canvas
+
+plot_sectors20(<canvas>): Plots 20 sectors on a canvas
+
+plot_vector(<canvas>, <distance>, <angle>): Plots a single vector on a canvas
+
+Useful propterties -----
+
+available: flag indicating availability of new data
+
+out_of_range: 32768, indicates an invalid data point
+
+scale_factor: factor used for plotting. Smaller values are shrinking, larger values are magnifying the display. Default: 0.2
+
+error_cnt: number of errors encountered while decoding the last chunk. Values below 3 can safely be ignored.
+
+sector40_lst: returns an array of the boundary angles of the sectors. Datatype: np.array (size 41) of int64
+
+sector20_lst: returns an array of the boundary angles of the sectors. Datatype: np.array (size 21) of int64
+
+sector40_midpoints: returns an array of the midpoints of the sectors. Datatype: np.array (size 40) of float64
+
+sector20_midpoints: returns an array of the midpoints of the sectors. Datatype: np.array (size 20) of float64
+
