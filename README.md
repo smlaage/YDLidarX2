@@ -23,6 +23,8 @@ Dependencies are:
 # Typical use:
 
 Prerequiste: The lidar is connected a serial interface on your system and powered on.
+The demo program runs on a Raspberry Pi. The output of the lidar is expected on the 
+Uart Rx pin (GPIO 15). In the Raspberry Pi configuration, the serial interface must be enabled.
 
 -----
 
