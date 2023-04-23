@@ -227,12 +227,14 @@ class YDLidarX2:
               ...
             - sectors[38] -> 342 - 350 degree,
             - sectors[39] -> 351 - 359 degree 
+            Sectors with missing values are reset to the minimum range.
             """
         if not self._is_scanning:
             warnings.warn("get_sectors40: Lidar is not scanning", RuntimeWarning)
        
         self._lock.acquire()
         sectors = np.array([self._result[_ * 9 : _ * 9 + 9].min() for _ in range(40)])
+        sectors[sectors > self._max_range] = self._min_range
         self._availability_flag = False
         self._lock.release()
         return sectors
@@ -248,12 +250,14 @@ class YDLidarX2:
               ...
             - sectors[38] -> 324 - 341 degree,
             - sectors[39] -> 342 - 359 degree 
+            Sectors with missing values are reset to the minimum range.
             """
         if not self._is_scanning:
             warnings.warn("get_sectors20: Lidar is not scanning", RuntimeWarning)
         
         self._lock.acquire()
         sectors = np.array([self._result[_ * 18 : _ * 18 + 18].min() for _ in range(20)])
+        sectors[sectors > self._max_range] = self._min_range
         self._availability_flag = False
         self._lock.release()
         return sectors
