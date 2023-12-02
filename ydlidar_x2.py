@@ -221,8 +221,8 @@ class YDLidarX2:
         """ Returns an array of minimum distances for sectors 0 ... 39.
             Resets availability flag.
             Sectors are:
-            - sectors[ 0] ->   0 -   7 degree,
-            - sectors[ 1] ->   8 -  17 degree,
+            - sectors[ 0] ->   0 -   8 degree,
+            - sectors[ 1] ->   9 -  17 degree,
             - sectors[ 2] ->  18 -  26 degree,
               ...
             - sectors[38] -> 342 - 350 degree,
